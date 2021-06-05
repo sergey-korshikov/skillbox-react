@@ -19,12 +19,28 @@ module.exports = {
 		nodeExternals()
 	],
 	module: {
-    rules: [{
-			test: /\.tsx?$/,
-			// test: /\.[jt]sx?$/,
-			loader: "ts-loader",
-			// use: ["ts-loader"],
-		}]
+    rules: [
+			{
+				test: /\.tsx?$/,
+				// test: /\.[jt]sx?$/,
+				loader: "ts-loader",
+				// use: ["ts-loader"],
+			}, {
+				test: /\.css$/,
+				use: [
+					{
+						loader: 'css-loader',
+						options: {
+							modules: {
+								mode: 'local',
+								localIdentName: '[name]__[local]--[hash:base64:5]',
+							},
+							// onlyLocals: true,
+						}
+					}
+				]
+			}
+		]
   },
 	optimization: {
 		minimize: false

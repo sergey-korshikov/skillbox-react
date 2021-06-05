@@ -1,4 +1,5 @@
 import { hot } from 'react-hot-loader/root';
+// import styles from './header.css';
 
 const HeaderComponent = () => (
 	<header>
